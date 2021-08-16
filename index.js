@@ -1,8 +1,10 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const routes = require('./routes/router');
+require('dotenv').config();
+const dbUrl = process.env.DB_URL;
 
-mongoose.connect('mongodb+srv://new-user:NO4fq8QoMy5QbQS7@movies.wiovw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
+mongoose.connect(dbUrl, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true,
@@ -20,6 +22,11 @@ const app = express();
 app.use(express.json());
 app.use('/', routes);
 
-app.listen(3000, () => {
-    console.log("Serving on port 3000")
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 3000;
+}
+
+app.listen(port, () => {
+    console.log(`Serving on port ${port}`);
 })

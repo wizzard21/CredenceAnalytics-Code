@@ -2,9 +2,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const routes = require('./routes/router');
 require('dotenv').config();
-const dbUrl = process.env.DB_URL;
 
-mongoose.connect(dbUrl, {
+mongoose.connect('mongodb+srv://new-user:NO4fq8QoMy5QbQS7@movies.wiovw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true,

@@ -1,10 +1,8 @@
 const mongoose = require('mongoose');
 const seed = require('./seed');
 const Movie = require('../models/movie');
-require('dotenv').config();
-const dbUrl = process.env.DB_URL;
 
-mongoose.connect(dbUrl, {
+mongoose.connect('mongodb+srv://new-user:NO4fq8QoMy5QbQS7@movies.wiovw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true
